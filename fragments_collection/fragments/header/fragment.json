@@ -1,0 +1,8 @@
+{
+  "name": "InsightBoard Header",
+  "type": "component",
+  "cssPath": "index.css",
+  "htmlPath": "index.html",
+  "jsPath": "index.js",
+  "configurationPath": "configuration.json"
+}

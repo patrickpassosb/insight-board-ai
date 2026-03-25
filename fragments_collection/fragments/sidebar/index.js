@@ -1,0 +1,1 @@
+/* No extra js needed for sidebar */

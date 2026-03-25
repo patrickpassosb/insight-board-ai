@@ -1,0 +1,72 @@
+:root {
+  --ib-surface-container-lowest: #ffffff;
+  --ib-surface-high: #e0e3e5;
+  --ib-surface-low: #f2f4f6;
+  --ib-text: #191c1e;
+  --ib-text-variant: #424654;
+}
+
+.ib-chart-card {
+  background-color: var(--ib-surface-container-lowest);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(195, 198, 214, 0.2);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ib-chart-card-full {
+  padding: 2rem;
+}
+
+.ib-chart-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--ib-text);
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
+.ib-doughnut-container {
+  position: relative;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.ib-segment-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ib-legend-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ib-legend-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 9999px;
+  margin-right: 0.5rem;
+}
+
+.ib-legend-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ib-text-variant);
+  flex-grow: 1;
+}
+
+.ib-legend-value {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--ib-text);
+}

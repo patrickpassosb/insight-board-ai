@@ -1,0 +1,24 @@
+{
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "icon",
+          "type": "text",
+          "label": "Material Icon Name",
+          "defaultValue": "payments"
+        },
+        {
+          "name": "trendState",
+          "type": "select",
+          "label": "Trend State",
+          "options": [
+            { "value": "positive", "label": "Positive (Green)" },
+            { "value": "negative", "label": "Negative (Red)" }
+          ],
+          "defaultValue": "positive"
+        }
+      ]
+    }
+  ]
+}

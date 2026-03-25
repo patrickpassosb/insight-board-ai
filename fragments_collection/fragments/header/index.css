@@ -1,0 +1,72 @@
+.ib-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background-color: var(--ib-surface);
+  border-bottom: 1px solid var(--ib-surface-high);
+}
+
+.ib-header-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.875rem;
+  font-weight: 800;
+  color: var(--ib-primary);
+  margin: 0;
+  letter-spacing: -0.05em;
+}
+
+.ib-header-subtitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--ib-text-variant);
+  margin: 0.25rem 0 0 0;
+}
+
+.ib-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ib-period-badge {
+  background-color: var(--ib-secondary-container);
+  color: var(--ib-on-secondary-container);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.ib-icon-btn {
+  background: none;
+  border: none;
+  color: var(--ib-text-variant);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.ib-icon-btn:hover {
+  background-color: var(--ib-surface-high);
+  color: var(--ib-text);
+}
+
+.ib-avatar {
+  background-color: var(--ib-surface-high);
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid white;
+  margin-left: 0.5rem;
+  color: var(--ib-text-variant);
+}

@@ -1,0 +1,13 @@
+<div class="ib-kpi-card">
+  <div class="ib-kpi-top">
+    <div class="ib-kpi-icon">
+      <span class="material-symbols-outlined">[#if configuration.icon??]${configuration.icon}[#else]payments[/#if]</span>
+    </div>
+    <span class="ib-kpi-badge ${configuration.trendState!'positive'}">
+      <span class="material-symbols-outlined">[#if configuration.trendState == 'positive']trending_up[#else]trending_down[/#if]</span>
+      <span data-lfr-editable-id="trend-value" data-lfr-editable-type="text">5.2%</span>
+    </span>
+  </div>
+  <p class="ib-kpi-label" data-lfr-editable-id="kpi-label" data-lfr-editable-type="text">Revenue</p>
+  <h3 class="ib-kpi-value" data-lfr-editable-id="kpi-value" data-lfr-editable-type="text">$125,000</h3>
+</div>

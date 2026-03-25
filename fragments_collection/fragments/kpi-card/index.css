@@ -1,0 +1,83 @@
+/* Import Fonts and Icons */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+:root {
+  --ib-primary: #0040a1;
+  --ib-surface-container-lowest: #ffffff;
+  --ib-surface-high: #e0e3e5;
+  --ib-surface-low: #f2f4f6;
+  --ib-text: #191c1e;
+  --ib-text-variant: #424654;
+  --ib-error: #ba1a1a;
+  --ib-error-container: rgba(186, 26, 26, 0.1);
+  --ib-green: #16a34a;
+  --ib-green-light: #f0fdf4;
+}
+
+.ib-kpi-card {
+  background-color: var(--ib-surface-container-lowest);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(195, 198, 214, 0.2);
+  font-family: 'Inter', sans-serif;
+  height: 100%;
+}
+
+.ib-kpi-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.ib-kpi-icon {
+  padding: 0.5rem;
+  background-color: var(--ib-surface-low);
+  border-radius: 0.5rem;
+  color: var(--ib-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ib-kpi-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.ib-kpi-badge .material-symbols-outlined {
+  font-size: 0.875rem;
+}
+
+.ib-kpi-badge.positive {
+  color: var(--ib-green);
+  background-color: var(--ib-green-light);
+}
+
+.ib-kpi-badge.negative {
+  color: var(--ib-error);
+  background-color: var(--ib-error-container);
+}
+
+.ib-kpi-label {
+  color: var(--ib-text-variant);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.ib-kpi-value {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.875rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin: 0.25rem 0 0 0;
+  color: var(--ib-text);
+}

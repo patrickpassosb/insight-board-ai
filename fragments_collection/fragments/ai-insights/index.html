@@ -1,0 +1,84 @@
+<section class="ib-ai-section" id="ai-section">
+  <div class="ib-ai-gradient-border">
+    <div class="ib-ai-panel">
+      <!-- Left: CTA -->
+      <div class="ib-ai-cta">
+        <div class="ib-ai-title-row">
+          <span class="material-symbols-outlined ib-ai-icon">auto_awesome</span>
+          <h2 class="ib-ai-title" data-lfr-editable-id="title" data-lfr-editable-type="text">AI-Powered Insights</h2>
+        </div>
+        <p class="ib-ai-description" data-lfr-editable-id="description" data-lfr-editable-type="text">
+          Our LLM has analyzed the last 30 days of behavioral data, support transcripts, and financial logs to identify critical patterns.
+        </p>
+        <button class="ib-btn-generate" id="btn-generate-insights">
+          <span class="material-symbols-outlined">magic_button</span>
+          <span data-lfr-editable-id="btn-text" data-lfr-editable-type="text">Generate Insights</span>
+        </button>
+        <!-- Loading state -->
+        <div class="ib-loading" id="ai-loading" style="display: none;">
+          <div class="ib-spinner"></div>
+          <span data-lfr-editable-id="loading-text" data-lfr-editable-type="text">Analyzing your data...</span>
+        </div>
+        <!-- Error state -->
+        <div class="ib-error" id="ai-error" style="display: none;">
+          <span class="material-symbols-outlined">error</span>
+          <span id="ai-error-text" data-lfr-editable-id="error-msg" data-lfr-editable-type="text">Failed to generate insights.</span>
+        </div>
+      </div>
+      <!-- Right: Results -->
+      <div class="ib-ai-results" id="ai-results">
+        <!-- Placeholder shown before generation -->
+        <div class="ib-ai-placeholder" id="ai-placeholder">
+          <span class="material-symbols-outlined ib-placeholder-icon">psychology</span>
+          <p data-lfr-editable-id="placeholder-text" data-lfr-editable-type="text">Click "Generate Insights" to get AI-powered strategic analysis of your dashboard data.</p>
+        </div>
+        <!-- Results populated by JS -->
+        <div class="ib-ai-content" id="ai-content" style="display: none;">
+          <!-- Summary -->
+          <div class="ib-summary-card">
+            <div class="ib-summary-header">
+              <h5 class="ib-summary-label" data-lfr-editable-id="summary-label" data-lfr-editable-type="text">Executive Summary</h5>
+              <div class="ib-risk-badge" id="risk-badge">High Risk</div>
+            </div>
+            <p class="ib-summary-text" id="ai-summary"></p>
+          </div>
+          <!-- Key Insights -->
+          <div class="ib-insights-grid">
+            <div class="ib-insight-card">
+              <div class="ib-insight-icon-wrap ib-insight-alert">
+                <span class="material-symbols-outlined">crisis_alert</span>
+              </div>
+              <div>
+                <p class="ib-insight-label" data-lfr-editable-id="obs-label" data-lfr-editable-type="text">Observation</p>
+                <p class="ib-insight-text" id="ai-insight-1"></p>
+              </div>
+            </div>
+            <div class="ib-insight-card">
+              <div class="ib-insight-icon-wrap ib-insight-info">
+                <span class="material-symbols-outlined">bug_report</span>
+              </div>
+              <div>
+                <p class="ib-insight-label" data-lfr-editable-id="link-label" data-lfr-editable-type="text">Critical Link</p>
+                <p class="ib-insight-text" id="ai-insight-2"></p>
+              </div>
+            </div>
+          </div>
+          <!-- Recommendation -->
+          <div class="ib-recommendation">
+            <h5 class="ib-rec-label">
+              <span class="material-symbols-outlined">lightbulb</span>
+              <span data-lfr-editable-id="rec-label" data-lfr-editable-type="text">Recommendation</span>
+            </h5>
+            <p class="ib-rec-text" id="ai-recommendation"></p>
+            <div class="ib-rec-action">
+              <a href="#" class="ib-btn-action" id="btn-draft-email" data-lfr-editable-id="action-text" data-lfr-editable-type="text">
+                Draft Email to Sales Team
+                <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

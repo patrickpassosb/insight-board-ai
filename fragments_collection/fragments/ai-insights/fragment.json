@@ -1,0 +1,8 @@
+{
+  "name": "InsightBoard AI Insights",
+  "type": "component",
+  "cssPath": "index.css",
+  "htmlPath": "index.html",
+  "jsPath": "index.js",
+  "configurationPath": "configuration.json"
+}

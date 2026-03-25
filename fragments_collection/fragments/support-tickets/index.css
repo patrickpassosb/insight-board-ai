@@ -1,0 +1,36 @@
+:root {
+  --ib-surface-container-lowest: #ffffff;
+  --ib-surface-high: #e0e3e5;
+  --ib-surface-low: #f2f4f6;
+  --ib-text: #191c1e;
+  --ib-text-variant: #424654;
+}
+
+.ib-chart-card {
+  background-color: var(--ib-surface-container-lowest);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(195, 198, 214, 0.2);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.ib-chart-header {
+  margin-bottom: 1.5rem;
+}
+
+.ib-chart-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--ib-text);
+  margin: 0;
+}
+
+.ib-chart-container {
+  flex-grow: 1;
+  position: relative;
+  min-height: 250px;
+}
