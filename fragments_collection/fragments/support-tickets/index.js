@@ -1,28 +1,40 @@
 const canvas = fragmentElement.querySelector('canvas');
+const endpointUrl = configuration.endpointUrl || '';
 
 if (typeof Chart === 'undefined') {
   const script = document.createElement('script');
   script.src = 'https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js';
-  script.onload = () => initChart();
+  script.onload = () => loadDataAndInitChart();
   document.head.appendChild(script);
 } else {
-  initChart();
+  loadDataAndInitChart();
 }
 
-function initChart() {
+async function loadDataAndInitChart() {
+  let chartData = {
+    labels: ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'],
+    datasets: [{
+      label: 'Support Tickets',
+      data: [42, 38, 45, 41, 95, 85],
+      backgroundColor: ['#e0e3e5', '#e0e3e5', '#e0e3e5', '#e0e3e5', '#ba1a1a', '#e0e3e5'],
+      borderRadius: 4
+    }]
+  };
+  
+  if (endpointUrl.trim() !== '') {
+    try {
+      const response = await fetch(endpointUrl);
+      if (response.ok) {
+        chartData = await response.json();
+      }
+    } catch(err) {
+      console.error('Error fetching chart data:', err);
+    }
+  }
+
   new Chart(canvas, {
     type: 'bar',
-    data: {
-      labels: ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'],
-      datasets: [{
-        label: 'Support Tickets',
-        data: [42, 38, 45, 41, 95, 85],
-        backgroundColor: [
-          '#e0e3e5', '#e0e3e5', '#e0e3e5', '#e0e3e5', '#ba1a1a', '#e0e3e5'
-        ],
-        borderRadius: 4
-      }]
-    },
+    data: chartData,
     options: {
       responsive: true,
       maintainAspectRatio: false,

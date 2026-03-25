@@ -1,3 +1,15 @@
 {
-  "fieldSets": []
+  "fieldSets": [
+    {
+      "fields": [
+        {
+          "name": "endpointUrl",
+          "type": "text",
+          "label": "JSON Data Endpoint URL",
+          "dataType": "string",
+          "defaultValue": ""
+        }
+      ]
+    }
+  ]
 }
