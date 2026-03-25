@@ -23,15 +23,18 @@ if (cachedData) {
   } catch(e) { /* ignore */ }
 }
 
+// Safely handle configuration
+const config = typeof configuration !== 'undefined' ? configuration : {};
+
 if (btnGenerate) {
   btnGenerate.addEventListener('click', async () => {
     // Dynamic metrics from Configuration (Manual or Data Provider)
     const currentMetrics = {
-      revenue: parseFloat(configuration.revenue) || 0,
-      revenue_growth: parseFloat(configuration.revenueGrowth) || 0,
-      active_users: parseInt(configuration.activeUsers) || 0,
-      churn_rate: parseFloat(configuration.churnRate) || 0,
-      support_tickets: parseInt(configuration.supportTickets) || 0
+      revenue: parseFloat(config.revenue) || 0,
+      revenue_growth: parseFloat(config.revenueGrowth) || 0,
+      active_users: parseInt(config.activeUsers) || 0,
+      churn_rate: parseFloat(config.churnRate) || 0,
+      support_tickets: parseInt(config.supportTickets) || 0
     };
 
     // UI Reset
@@ -42,15 +45,15 @@ if (btnGenerate) {
     loadingState.style.display = 'flex';
 
     try {
-      const apiEndpoint = configuration.proxyUrl || 'http://localhost:3000/api/analyze';
+      const apiEndpoint = config.proxyUrl || 'http://localhost:3000/api/analyze';
       
       const response = await fetch(apiEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          period: configuration.period || 'Current Period',
+          period: config.period || 'Current Period',
           metrics: currentMetrics,
-          customPrompt: configuration.customPrompt
+          customPrompt: config.customPrompt
         })
       });
 

@@ -7,14 +7,16 @@
           "name": "proxyUrl",
           "type": "text",
           "label": "AI Proxy URL",
+          "dataType": "string",
           "description": "The endpoint of your InsightBoard AI middleware.",
           "defaultValue": "http://localhost:3000/api/analyze"
         },
         {
           "name": "customPrompt",
-          "type": "textarea",
+          "type": "text",
           "label": "AI Persona / Context",
-          "description": "Define the AI's role or provide specific business context (e.g., 'Analyze as a specialized Retail Consultant').",
+          "dataType": "string",
+          "description": "Define the AI's role or provide specific business context.",
           "defaultValue": "You are a seasoned Chief Operating Officer (COO) analyzing a company's monthly dashboard. You will receive business metrics and must provide a strategic analysis."
         }
       ]
@@ -26,41 +28,42 @@
           "name": "period",
           "type": "text",
           "label": "Analysis Period",
+          "dataType": "string",
           "defaultValue": "Current Month"
         },
         {
           "name": "revenue",
           "type": "text",
           "label": "Revenue ($)",
-          "dataType": "number",
+          "dataType": "string",
           "defaultValue": "125000"
         },
         {
           "name": "revenueGrowth",
           "type": "text",
           "label": "Revenue Growth (%)",
-          "dataType": "number",
+          "dataType": "string",
           "defaultValue": "-5.2"
         },
         {
           "name": "activeUsers",
           "type": "text",
           "label": "Active Users",
-          "dataType": "number",
+          "dataType": "string",
           "defaultValue": "1200"
         },
         {
           "name": "churnRate",
           "type": "text",
           "label": "Churn Rate (%)",
-          "dataType": "number",
+          "dataType": "string",
           "defaultValue": "4.8"
         },
         {
           "name": "supportTickets",
           "type": "text",
           "label": "Support Tickets",
-          "dataType": "number",
+          "dataType": "string",
           "defaultValue": "85"
         }
       ]
