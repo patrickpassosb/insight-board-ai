@@ -1,0 +1,19 @@
+{
+  "name": "insight-board-ai",
+  "version": "1.0.0",
+  "description": "A Liferay Fragment that acts as an intelligent business command center. Unlike traditional dashboards that only *show* data, InsightBoard *interprets* it. By integrating Liferay's frontend with a Node.js middleware and the Mistral AI API, it provides real-time executive summaries, anomaly detection, and actionable strategic recommendations directly within the portal.",
+  "repository": {
+    "type": "git",
+    "url": "insight-board-ai"
+  },
+  "license": "MIT",
+  "author": "Patrick Passos",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
