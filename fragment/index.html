@@ -1,0 +1,279 @@
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+
+<div class="ib-dashboard" id="insightboard-root">
+  <!-- Sidebar -->
+  <aside class="ib-sidebar">
+    <div class="ib-sidebar-brand">
+      <div class="ib-brand-icon">
+        <span class="material-symbols-outlined">insights</span>
+      </div>
+      <div>
+        <h1 class="ib-brand-title">InsightBoard</h1>
+        <p class="ib-brand-subtitle">AI Analytics</p>
+      </div>
+    </div>
+
+    <nav class="ib-sidebar-nav">
+      <a href="#" class="ib-nav-item active">
+        <span class="material-symbols-outlined">dashboard</span>
+        <span>Overview</span>
+      </a>
+      <a href="#" class="ib-nav-item">
+        <span class="material-symbols-outlined">trending_up</span>
+        <span>Market Trends</span>
+      </a>
+      <a href="#" class="ib-nav-item">
+        <span class="material-symbols-outlined">inventory_2</span>
+        <span>Inventory</span>
+      </a>
+      <a href="#" class="ib-nav-item">
+        <span class="material-symbols-outlined">auto_awesome</span>
+        <span>AI Advisor</span>
+      </a>
+      <a href="#" class="ib-nav-item">
+        <span class="material-symbols-outlined">settings</span>
+        <span>Settings</span>
+      </a>
+    </nav>
+
+    <div class="ib-sidebar-footer">
+      <button class="ib-btn-report">
+        <span class="material-symbols-outlined">description</span>
+        Generate Report
+      </button>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="ib-main">
+    <!-- Header -->
+    <header class="ib-header">
+      <div>
+        <h1 class="ib-header-title">InsightBoard AI</h1>
+        <p class="ib-header-subtitle">Turning Data into Decisions with AI</p>
+      </div>
+      <div class="ib-header-actions">
+        <span class="ib-period-badge">March 2026</span>
+        <button class="ib-icon-btn">
+          <span class="material-symbols-outlined">notifications</span>
+        </button>
+        <button class="ib-icon-btn">
+          <span class="material-symbols-outlined">settings</span>
+        </button>
+        <div class="ib-avatar">
+          <span class="material-symbols-outlined">person</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="ib-content">
+      <!-- KPI Cards -->
+      <section class="ib-kpi-grid">
+        <!-- Revenue -->
+        <div class="ib-kpi-card">
+          <div class="ib-kpi-top">
+            <div class="ib-kpi-icon">
+              <span class="material-symbols-outlined">payments</span>
+            </div>
+            <span class="ib-kpi-badge negative">
+              <span class="material-symbols-outlined">trending_down</span>
+              5.2%
+            </span>
+          </div>
+          <p class="ib-kpi-label">Revenue</p>
+          <h3 class="ib-kpi-value">$125,000</h3>
+        </div>
+        <!-- Growth -->
+        <div class="ib-kpi-card">
+          <div class="ib-kpi-top">
+            <div class="ib-kpi-icon">
+              <span class="material-symbols-outlined">show_chart</span>
+            </div>
+            <span class="ib-kpi-badge positive">
+              <span class="material-symbols-outlined">trending_up</span>
+              2.1%
+            </span>
+          </div>
+          <p class="ib-kpi-label">Growth</p>
+          <h3 class="ib-kpi-value">12.3%</h3>
+        </div>
+        <!-- Active Users -->
+        <div class="ib-kpi-card">
+          <div class="ib-kpi-top">
+            <div class="ib-kpi-icon">
+              <span class="material-symbols-outlined">group</span>
+            </div>
+            <span class="ib-kpi-badge positive">
+              <span class="material-symbols-outlined">trending_up</span>
+              8.4%
+            </span>
+          </div>
+          <p class="ib-kpi-label">Active Users</p>
+          <h3 class="ib-kpi-value">1,200</h3>
+        </div>
+        <!-- Churn Rate -->
+        <div class="ib-kpi-card">
+          <div class="ib-kpi-top">
+            <div class="ib-kpi-icon">
+              <span class="material-symbols-outlined">person_remove</span>
+            </div>
+            <span class="ib-kpi-badge negative">
+              <span class="material-symbols-outlined">trending_up</span>
+              1.2%
+            </span>
+          </div>
+          <p class="ib-kpi-label">Churn Rate</p>
+          <h3 class="ib-kpi-value">4.8%</h3>
+        </div>
+      </section>
+
+      <!-- Charts Row -->
+      <section class="ib-charts-grid">
+        <!-- Left Column: Revenue Trend + Support Tickets -->
+        <div class="ib-charts-left">
+          <div class="ib-chart-card">
+            <div class="ib-chart-header">
+              <h4 class="ib-chart-title">Revenue Trend</h4>
+              <span class="ib-chart-badge">Last 6 Months</span>
+            </div>
+            <div class="ib-chart-container">
+              <canvas id="revenueChart"></canvas>
+            </div>
+          </div>
+          <div class="ib-chart-card">
+            <div class="ib-chart-header">
+              <h4 class="ib-chart-title">Support Tickets by Month</h4>
+            </div>
+            <div class="ib-chart-container">
+              <canvas id="supportChart"></canvas>
+            </div>
+          </div>
+        </div>
+        <!-- Right Column: Revenue by Segment -->
+        <div class="ib-charts-right">
+          <div class="ib-chart-card ib-chart-card-full">
+            <h4 class="ib-chart-title" style="text-align: center;">Revenue by Segment</h4>
+            <div class="ib-doughnut-container">
+              <canvas id="segmentChart"></canvas>
+            </div>
+            <div class="ib-segment-legend">
+              <div class="ib-legend-item">
+                <div class="ib-legend-dot" style="background: #0040a1;"></div>
+                <span class="ib-legend-label">Enterprise</span>
+                <span class="ib-legend-value">45%</span>
+              </div>
+              <div class="ib-legend-item">
+                <div class="ib-legend-dot" style="background: #0056d2;"></div>
+                <span class="ib-legend-label">Mid-Market</span>
+                <span class="ib-legend-value">30%</span>
+              </div>
+              <div class="ib-legend-item">
+                <div class="ib-legend-dot" style="background: #d5e3fc;"></div>
+                <span class="ib-legend-label">SMB</span>
+                <span class="ib-legend-value">15%</span>
+              </div>
+              <div class="ib-legend-item">
+                <div class="ib-legend-dot" style="background: #eceef0;"></div>
+                <span class="ib-legend-label">Startup</span>
+                <span class="ib-legend-value">10%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Insights Panel -->
+      <section class="ib-ai-section" id="ai-section">
+        <div class="ib-ai-gradient-border">
+          <div class="ib-ai-panel">
+            <!-- Left: CTA -->
+            <div class="ib-ai-cta">
+              <div class="ib-ai-title-row">
+                <span class="material-symbols-outlined ib-ai-icon">auto_awesome</span>
+                <h2 class="ib-ai-title">AI-Powered Insights</h2>
+              </div>
+              <p class="ib-ai-description">
+                Our LLM has analyzed the last 30 days of behavioral data, support transcripts, and financial logs to identify critical patterns.
+              </p>
+              <button class="ib-btn-generate" id="btn-generate-insights">
+                <span class="material-symbols-outlined">magic_button</span>
+                Generate Insights
+              </button>
+              <!-- Loading state -->
+              <div class="ib-loading" id="ai-loading" style="display: none;">
+                <div class="ib-spinner"></div>
+                <span>Analyzing your data...</span>
+              </div>
+              <!-- Error state -->
+              <div class="ib-error" id="ai-error" style="display: none;">
+                <span class="material-symbols-outlined">error</span>
+                <span id="ai-error-text">Failed to generate insights.</span>
+              </div>
+            </div>
+            <!-- Right: Results -->
+            <div class="ib-ai-results" id="ai-results">
+              <!-- Placeholder shown before generation -->
+              <div class="ib-ai-placeholder" id="ai-placeholder">
+                <span class="material-symbols-outlined ib-placeholder-icon">psychology</span>
+                <p>Click "Generate Insights" to get AI-powered strategic analysis of your dashboard data.</p>
+              </div>
+              <!-- Results populated by JS -->
+              <div class="ib-ai-content" id="ai-content" style="display: none;">
+                <!-- Summary -->
+                <div class="ib-summary-card">
+                  <div class="ib-summary-header">
+                    <h5 class="ib-summary-label">Executive Summary</h5>
+                    <div class="ib-risk-badge" id="risk-badge">High Risk</div>
+                  </div>
+                  <p class="ib-summary-text" id="ai-summary"></p>
+                </div>
+                <!-- Key Insights -->
+                <div class="ib-insights-grid">
+                  <div class="ib-insight-card">
+                    <div class="ib-insight-icon-wrap ib-insight-alert">
+                      <span class="material-symbols-outlined">crisis_alert</span>
+                    </div>
+                    <div>
+                      <p class="ib-insight-label">Observation</p>
+                      <p class="ib-insight-text" id="ai-insight-1"></p>
+                    </div>
+                  </div>
+                  <div class="ib-insight-card">
+                    <div class="ib-insight-icon-wrap ib-insight-info">
+                      <span class="material-symbols-outlined">bug_report</span>
+                    </div>
+                    <div>
+                      <p class="ib-insight-label">Critical Link</p>
+                      <p class="ib-insight-text" id="ai-insight-2"></p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Recommendation -->
+                <div class="ib-recommendation">
+                  <h5 class="ib-rec-label">
+                    <span class="material-symbols-outlined">lightbulb</span>
+                    Recommendation
+                  </h5>
+                  <p class="ib-rec-text" id="ai-recommendation"></p>
+                  <div class="ib-rec-action">
+                    <a href="#" class="ib-btn-action" id="btn-draft-email">
+                      Draft Email to Sales Team
+                      <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
