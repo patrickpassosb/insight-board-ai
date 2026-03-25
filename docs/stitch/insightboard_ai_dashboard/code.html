@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>InsightBoard AI - Analytics Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-primary": "#ffffff",
+              "secondary-container": "#d5e3fc",
+              "surface-container": "#eceef0",
+              "primary-container": "#0056d2",
+              "on-primary-container": "#ccd8ff",
+              "tertiary-container": "#742fe5",
+              "inverse-surface": "#2d3133",
+              "surface": "#f7f9fb",
+              "secondary": "#515f74",
+              "on-secondary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "error": "#ba1a1a",
+              "on-tertiary-fixed": "#25005a",
+              "surface-bright": "#f7f9fb",
+              "surface-container-highest": "#e0e3e5",
+              "inverse-on-surface": "#eff1f3",
+              "on-tertiary-container": "#e2d2ff",
+              "on-tertiary": "#ffffff",
+              "outline-variant": "#c3c6d6",
+              "surface-dim": "#d8dadc",
+              "surface-tint": "#0056d2",
+              "on-secondary-container": "#57657a",
+              "on-surface": "#191c1e",
+              "on-background": "#191c1e",
+              "on-surface-variant": "#424654",
+              "secondary-fixed": "#d5e3fc",
+              "tertiary-fixed-dim": "#d2bbff",
+              "outline": "#737785",
+              "on-primary-fixed-variant": "#0040a1",
+              "on-secondary-fixed-variant": "#3a485b",
+              "tertiary-fixed": "#eaddff",
+              "surface-variant": "#e0e3e5",
+              "on-error-container": "#93000a",
+              "primary-fixed-dim": "#b2c5ff",
+              "secondary-fixed-dim": "#b9c7df",
+              "surface-container-low": "#f2f4f6",
+              "on-primary-fixed": "#001847",
+              "inverse-primary": "#b2c5ff",
+              "on-secondary-fixed": "#0d1c2e",
+              "tertiary": "#5a00c7",
+              "surface-container-high": "#e6e8ea",
+              "primary-fixed": "#dae2ff",
+              "on-tertiary-fixed-variant": "#5a00c6",
+              "error-container": "#ffdad6",
+              "primary": "#0040a1",
+              "on-error": "#ffffff",
+              "background": "#f7f9fb"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-ai {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Sidebar (Shared Component) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-4 space-y-2 bg-[#f7f9fb] dark:bg-slate-950 font-manrope text-sm font-medium w-64 border-r-0">
+<div class="flex items-center gap-3 px-2 mb-8 mt-2">
+<div class="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-[#0040a1] dark:text-blue-300 tracking-tighter leading-none">InsightBoard</h1>
+<p class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">AI Analytics</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-3 py-2.5 bg-white dark:bg-slate-800 text-[#0056D2] dark:text-blue-300 rounded-lg shadow-sm font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 hover:translate-x-1 transition-transform duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="trending_up">trending_up</span>
+<span>Market Trends</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 hover:translate-x-1 transition-transform duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 hover:translate-x-1 transition-transform duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="auto_awesome">auto_awesome</span>
+<span>AI Advisor</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 hover:translate-x-1 transition-transform duration-200 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="pt-4 mt-auto border-t border-surface-container-highest">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-white py-3 px-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="description">description</span>
+                Generate Report
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- Header (Shared Component Mapping) -->
+<header class="flex justify-between items-center w-full px-8 py-6 max-w-[1440px] mx-auto bg-[#f7f9fb] dark:bg-slate-950 font-manrope antialiased tracking-tight">
+<div>
+<h1 class="text-3xl font-extrabold text-[#0040a1] dark:text-blue-300 tracking-tighter">InsightBoard AI</h1>
+<p class="text-on-surface-variant font-medium mt-1">Turning Data into Decisions with AI</p>
+</div>
+<div class="flex items-center gap-4">
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest">March 2026</span>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md transition-all">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-md transition-all">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest border-2 border-white overflow-hidden ml-2 shadow-sm">
+<img alt="User Profile" data-alt="professional portrait of a businessman in a light blue shirt with a clean background and soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0xlNmxHuhA0OXAxJySVO-5fUOZl1h7VAq9lA4dUGEoG4zX0CD8JnNFyiCINWMFstLnHql58k06NS4IDHfJI4M_rMdVLEwvALjo_774rtpyL5tQilxVbggVc_ug5DzvBYqm2xKE4nIntEQ48p7VohrK6QjSl3ul8sqzWsMs5ziqi5cs6BPaPiZNUDIaOiJIDJFybGd3AH_tRS9BNSA4EcjaNGTTngPgAnRb3uq3fKkFnpwQCMEGSuEv87hHK8iEfAjtVLOX_tbFuaD"/>
+</div>
+</div>
+</div>
+</header>
+<div class="px-8 pb-12 max-w-[1440px] mx-auto space-y-12">
+<!-- KPI Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- KPI Card 1: Revenue -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-surface-container-low rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="payments">payments</span>
+</div>
+<span class="flex items-center text-error text-xs font-bold gap-1 bg-error-container/30 px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-xs" data-icon="trending_down">trending_down</span>
+                            5.2%
+                        </span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">Revenue</p>
+<h3 class="text-3xl font-extrabold tracking-tight mt-1 text-on-surface">$125,000</h3>
+</div>
+<!-- KPI Card 2: Growth -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-surface-container-low rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="show_chart">show_chart</span>
+</div>
+<span class="flex items-center text-green-600 text-xs font-bold gap-1 bg-green-50 px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+                            2.1%
+                        </span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">Growth</p>
+<h3 class="text-3xl font-extrabold tracking-tight mt-1 text-on-surface">12.3%</h3>
+</div>
+<!-- KPI Card 3: Active Users -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-surface-container-low rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+</div>
+<span class="flex items-center text-green-600 text-xs font-bold gap-1 bg-green-50 px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+                            8.4%
+                        </span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">Active Users</p>
+<h3 class="text-3xl font-extrabold tracking-tight mt-1 text-on-surface">1,200</h3>
+</div>
+<!-- KPI Card 4: Churn Rate -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-surface-container-low rounded-lg text-primary">
+<span class="material-symbols-outlined" data-icon="person_remove">person_remove</span>
+</div>
+<span class="flex items-center text-error text-xs font-bold gap-1 bg-error-container/30 px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span>
+                            1.2%
+                        </span>
+</div>
+<p class="text-on-surface-variant text-sm font-medium">Churn Rate</p>
+<h3 class="text-3xl font-extrabold tracking-tight mt-1 text-on-surface">4.8%</h3>
+</div>
+</section>
+<!-- Main Charts Row -->
+<section class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+<!-- Left: Revenue & Support (60%) -->
+<div class="lg:col-span-3 space-y-8">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+<div class="flex justify-between items-center mb-8">
+<h4 class="text-lg font-bold text-on-surface font-headline">Revenue Trend</h4>
+<div class="flex gap-2">
+<span class="text-xs font-semibold text-on-surface-variant bg-surface-container-low px-3 py-1 rounded">Last 6 Months</span>
+</div>
+</div>
+<div class="h-64 flex items-end justify-between px-2 relative">
+<!-- Simple custom CSS-based visual representation of chart -->
+<div class="absolute inset-0 flex flex-col justify-between py-2 text-[10px] text-slate-400">
+<span>$150k</span><span>$100k</span><span>$50k</span><span>0</span>
+</div>
+<div class="w-12 bg-primary/10 h-[70%] rounded-t-sm relative group cursor-pointer hover:bg-primary/20 transition-all ml-8">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-inverse-surface text-white text-[10px] py-1 px-2 rounded">$105k</div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-slate-400">Oct</span>
+</div>
+<div class="w-12 bg-primary/10 h-[75%] rounded-t-sm relative group cursor-pointer hover:bg-primary/20 transition-all">
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-slate-400">Nov</span>
+</div>
+<div class="w-12 bg-primary/10 h-[85%] rounded-t-sm relative group cursor-pointer hover:bg-primary/20 transition-all">
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-slate-400">Dec</span>
+</div>
+<div class="w-12 bg-primary/10 h-[92%] rounded-t-sm relative group cursor-pointer hover:bg-primary/20 transition-all">
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-slate-400">Jan</span>
+</div>
+<div class="w-12 bg-primary/10 h-[98%] rounded-t-sm relative group cursor-pointer hover:bg-primary/20 transition-all">
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-slate-400">Feb</span>
+</div>
+<div class="w-12 bg-error/20 h-[84%] rounded-t-sm relative group cursor-pointer hover:bg-error/30 transition-all">
+<div class="absolute -top-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 bg-error text-white text-[10px] py-1 px-2 rounded">$125k</div>
+<span class="absolute -bottom-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-error">Mar</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10">
+<h4 class="text-lg font-bold text-on-surface font-headline mb-8">Support Tickets by Month</h4>
+<div class="flex items-end h-48 gap-4 px-2">
+<div class="flex-1 bg-surface-container-low h-[40%] rounded-t-md hover:bg-surface-container-highest transition-colors"></div>
+<div class="flex-1 bg-surface-container-low h-[35%] rounded-t-md hover:bg-surface-container-highest transition-colors"></div>
+<div class="flex-1 bg-surface-container-low h-[45%] rounded-t-md hover:bg-surface-container-highest transition-colors"></div>
+<div class="flex-1 bg-surface-container-low h-[42%] rounded-t-md hover:bg-surface-container-highest transition-colors"></div>
+<div class="flex-1 bg-primary h-[85%] rounded-t-md relative">
+<span class="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] font-bold text-primary">Spike</span>
+</div>
+<div class="flex-1 bg-surface-container-low h-[65%] rounded-t-md hover:bg-surface-container-highest transition-colors"></div>
+</div>
+</div>
+</div>
+<!-- Right: Segment Doughnut (40%) -->
+<div class="lg:col-span-2">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-sm border border-outline-variant/10 h-full flex flex-col">
+<h4 class="text-lg font-bold text-on-surface font-headline mb-8 text-center">Revenue by Segment</h4>
+<div class="flex-1 flex flex-col justify-center items-center">
+<div class="relative w-48 h-48 mb-8">
+<svg class="w-full h-full transform -rotate-90">
+<circle cx="96" cy="96" fill="transparent" r="80" stroke="#0040a1" stroke-dasharray="502" stroke-dashoffset="276" stroke-width="24"></circle>
+<circle cx="96" cy="96" fill="transparent" r="80" stroke="#0056d2" stroke-dasharray="502" stroke-dashoffset="351" stroke-width="24"></circle>
+<circle cx="96" cy="96" fill="transparent" r="80" stroke="#d5e3fc" stroke-dasharray="502" stroke-dashoffset="426" stroke-width="24"></circle>
+<circle cx="96" cy="96" fill="transparent" r="80" stroke="#eceef0" stroke-dasharray="502" stroke-dashoffset="451" stroke-width="24"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-3xl font-black text-on-surface">100%</span>
+<span class="text-[10px] text-slate-400 uppercase font-bold tracking-widest">Total</span>
+</div>
+</div>
+<div class="w-full space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary"></div>
+<span class="text-sm font-medium text-on-surface-variant">Enterprise</span>
+</div>
+<span class="text-sm font-bold">45%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-primary-container"></div>
+<span class="text-sm font-medium text-on-surface-variant">Mid-Market</span>
+</div>
+<span class="text-sm font-bold">30%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-secondary-container"></div>
+<span class="text-sm font-medium text-on-surface-variant">SMB</span>
+</div>
+<span class="text-sm font-bold">15%</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-3 h-3 rounded-full bg-surface-container"></div>
+<span class="text-sm font-medium text-on-surface-variant">Startup</span>
+</div>
+<span class="text-sm font-bold">10%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- AI Insights Panel -->
+<section class="relative overflow-hidden p-[1px] rounded-2xl bg-gradient-to-br from-tertiary via-primary-container to-tertiary-container shadow-2xl shadow-tertiary/10">
+<div class="bg-surface-container-lowest glass-ai p-8 md:p-10 rounded-[15px] flex flex-col md:flex-row gap-10">
+<div class="md:w-1/3">
+<div class="flex items-center gap-3 text-tertiary mb-6">
+<span class="material-symbols-outlined text-3xl" data-icon="auto_awesome" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h2 class="text-2xl font-black font-headline tracking-tighter">AI-Powered Insights</h2>
+</div>
+<p class="text-on-surface-variant leading-relaxed mb-8">
+                            Our LLM has analyzed the last 30 days of behavioral data, support transcripts, and financial logs to identify critical patterns.
+                        </p>
+<button class="w-full bg-tertiary hover:bg-tertiary/90 text-white py-4 px-6 rounded-xl font-bold flex items-center justify-center gap-3 shadow-xl shadow-tertiary/20 active:scale-[0.98] transition-all">
+<span class="material-symbols-outlined" data-icon="magic_button">magic_button</span>
+                            Generate Insights
+                        </button>
+</div>
+<div class="md:w-2/3 space-y-8">
+<!-- Summary Section -->
+<div class="bg-surface-container-low/50 p-6 rounded-xl border border-white/40">
+<div class="flex justify-between items-start mb-4">
+<h5 class="font-bold text-sm uppercase tracking-widest text-slate-500">Executive Summary</h5>
+<div class="bg-error-container text-on-error-container px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest border border-error/10">High Risk</div>
+</div>
+<p class="text-lg font-medium text-on-surface leading-snug">
+                                "Revenue is down 5.2% due to increased churn. The support ticket spike in February correlates with the v3.2 release."
+                            </p>
+</div>
+<!-- Key Insights Bento -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-5 bg-white rounded-xl shadow-sm border border-outline-variant/10 flex items-start gap-4">
+<div class="mt-1 w-8 h-8 rounded-lg bg-error-container/40 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-xl" data-icon="crisis_alert">crisis_alert</span>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Observation</p>
+<p class="text-sm font-semibold text-on-surface">Churn rate (4.8%) is 2x above industry average</p>
+</div>
+</div>
+<div class="p-5 bg-white rounded-xl shadow-sm border border-outline-variant/10 flex items-start gap-4">
+<div class="mt-1 w-8 h-8 rounded-lg bg-primary-fixed/40 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-xl" data-icon="bug_report">bug_report</span>
+</div>
+<div>
+<p class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Critical Link</p>
+<p class="text-sm font-semibold text-on-surface">Support ticket volume increased 40% after v3.2 release</p>
+</div>
+</div>
+</div>
+<!-- Recommendation -->
+<div class="bg-primary/5 p-6 rounded-xl border-l-4 border-primary">
+<h5 class="text-xs font-bold text-primary uppercase tracking-widest mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="lightbulb">lightbulb</span>
+                                Recommendation
+                            </h5>
+<p class="font-semibold text-on-surface-variant">
+                                Initiate customer retention campaign and audit v3.2 release for performance regressions.
+                            </p>
+<div class="mt-6 flex justify-end">
+<button class="flex items-center gap-2 text-primary font-bold text-sm hover:underline">
+                                    Draft Email to Sales Team
+                                    <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</body></html>
