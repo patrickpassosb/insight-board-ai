@@ -6,16 +6,20 @@
           "name": "icon",
           "type": "text",
           "label": "Material Icon Name",
+          "dataType": "string",
           "defaultValue": "payments"
         },
         {
           "name": "trendState",
           "type": "select",
           "label": "Trend State",
-          "options": [
-            { "value": "positive", "label": "Positive (Green)" },
-            { "value": "negative", "label": "Negative (Red)" }
-          ],
+          "dataType": "string",
+          "typeOptions": {
+            "validValues": [
+              { "value": "positive", "label": "Positive (Green)" },
+              { "value": "negative", "label": "Negative (Red)" }
+            ]
+          },
           "defaultValue": "positive"
         }
       ]
