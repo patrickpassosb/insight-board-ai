@@ -11,15 +11,7 @@ if (typeof Chart === 'undefined') {
 }
 
 async function loadDataAndInitChart() {
-  let chartData = {
-    labels: ['Enterprise', 'Mid-Market', 'SMB', 'Startup'],
-    datasets: [{
-      data: [45, 30, 15, 10],
-      backgroundColor: ['#0040a1', '#0056d2', '#d5e3fc', '#eceef0'],
-      borderWidth: 0,
-      cutout: '80%'
-    }]
-  };
+  let chartData = JSON.parse(configuration.chartData);
   
   if (endpointUrl.trim() !== '') {
     try {

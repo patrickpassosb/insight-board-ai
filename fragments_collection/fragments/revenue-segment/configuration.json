@@ -8,6 +8,21 @@
           "label": "JSON Data Endpoint URL",
           "dataType": "string",
           "defaultValue": ""
+        },
+        {
+          "name": "chartData",
+          "type": "text",
+          "label": "JSON Chart Data",
+          "dataType": "string",
+          "defaultValue": {
+            labels: ['Enterprise', 'Mid-Market', 'SMB', 'Startup'],
+            datasets: [{
+              data: [45, 30, 15, 10],
+              backgroundColor: ['#0040a1', '#0056d2', '#d5e3fc', '#eceef0'],
+              borderWidth: 0,
+              cutout: '80%'
+            }]
+          }
         }
       ]
     }

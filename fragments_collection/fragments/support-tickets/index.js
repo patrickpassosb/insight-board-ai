@@ -11,15 +11,7 @@ if (typeof Chart === 'undefined') {
 }
 
 async function loadDataAndInitChart() {
-  let chartData = {
-    labels: ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'],
-    datasets: [{
-      label: 'Support Tickets',
-      data: [42, 38, 45, 41, 95, 85],
-      backgroundColor: ['#e0e3e5', '#e0e3e5', '#e0e3e5', '#e0e3e5', '#ba1a1a', '#e0e3e5'],
-      borderRadius: 4
-    }]
-  };
+  let chartData = JSON.parse(configuration.chartData);
   
   if (endpointUrl.trim() !== '') {
     try {

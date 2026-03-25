@@ -11,18 +11,7 @@ if (typeof Chart === 'undefined') {
 }
 
 async function loadDataAndInitChart() {
-  let chartData = {
-    labels: ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'],
-    datasets: [{
-      label: 'Revenue',
-      data: [105000, 110000, 115000, 118000, 122000, 125000],
-      borderColor: '#0040a1',
-      backgroundColor: 'rgba(0, 64, 161, 0.1)',
-      borderWidth: 2,
-      fill: true,
-      tension: 0.4
-    }]
-  };
+  let chartData = JSON.parse(configuration.chartData);
   
   if (endpointUrl.trim() !== '') {
     try {

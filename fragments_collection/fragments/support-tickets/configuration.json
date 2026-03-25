@@ -8,6 +8,21 @@
           "label": "JSON Data Endpoint URL",
           "dataType": "string",
           "defaultValue": ""
+        },
+        {
+          "name": "chartData",
+          "type": "text",
+          "label": "JSON Chart Data",
+          "dataType": "string",
+          "defaultValue": {
+            labels: ['Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar'],
+            datasets: [{
+              label: 'Support Tickets',
+              data: [42, 38, 45, 41, 95, 85],
+              backgroundColor: ['#e0e3e5', '#e0e3e5', '#e0e3e5', '#e0e3e5', '#ba1a1a', '#e0e3e5'],
+              borderRadius: 4
+            }]
+          }
         }
       ]
     }
