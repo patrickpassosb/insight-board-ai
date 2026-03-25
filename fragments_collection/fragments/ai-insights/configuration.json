@@ -1,3 +1,69 @@
 {
-  "fieldSets": []
+  "fieldSets": [
+    {
+      "label": "API Configuration",
+      "fields": [
+        {
+          "name": "proxyUrl",
+          "type": "text",
+          "label": "AI Proxy URL",
+          "description": "The endpoint of your InsightBoard AI middleware.",
+          "defaultValue": "http://localhost:3000/api/analyze"
+        },
+        {
+          "name": "customPrompt",
+          "type": "textarea",
+          "label": "AI Persona / Context",
+          "description": "Define the AI's role or provide specific business context (e.g., 'Analyze as a specialized Retail Consultant').",
+          "defaultValue": "You are a seasoned Chief Operating Officer (COO) analyzing a company's monthly dashboard. You will receive business metrics and must provide a strategic analysis."
+        }
+      ]
+    },
+    {
+      "label": "Business Metrics",
+      "fields": [
+        {
+          "name": "period",
+          "type": "text",
+          "label": "Analysis Period",
+          "defaultValue": "Current Month"
+        },
+        {
+          "name": "revenue",
+          "type": "text",
+          "label": "Revenue ($)",
+          "dataType": "number",
+          "defaultValue": "125000"
+        },
+        {
+          "name": "revenueGrowth",
+          "type": "text",
+          "label": "Revenue Growth (%)",
+          "dataType": "number",
+          "defaultValue": "-5.2"
+        },
+        {
+          "name": "activeUsers",
+          "type": "text",
+          "label": "Active Users",
+          "dataType": "number",
+          "defaultValue": "1200"
+        },
+        {
+          "name": "churnRate",
+          "type": "text",
+          "label": "Churn Rate (%)",
+          "dataType": "number",
+          "defaultValue": "4.8"
+        },
+        {
+          "name": "supportTickets",
+          "type": "text",
+          "label": "Support Tickets",
+          "dataType": "number",
+          "defaultValue": "85"
+        }
+      ]
+    }
+  ]
 }

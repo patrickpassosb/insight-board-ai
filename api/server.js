@@ -16,14 +16,15 @@ app.get("/api/health", (_req, res) => {
 
 // Main analysis endpoint
 app.post("/api/analyze", async (req, res) => {
-  const { period, metrics } = req.body;
+  const { period, metrics, customPrompt } = req.body;
 
   if (!period || !metrics) {
     return res.status(400).json({ error: "Missing required fields: period, metrics" });
   }
 
-  const systemPrompt = `You are a seasoned Chief Operating Officer (COO) analyzing a company's monthly dashboard.
-You will receive business metrics and must provide a strategic analysis.
+  const basePrompt = customPrompt || "You are a seasoned Chief Operating Officer (COO) analyzing a company's monthly dashboard. You will receive business metrics and must provide a strategic analysis.";
+
+  const systemPrompt = `${basePrompt}
 
 You MUST respond with strictly valid JSON containing exactly these 4 fields:
 1. "summary" — One sentence executive overview of the current situation

@@ -12,17 +12,11 @@ const elInsight1 = fragmentElement.querySelector('#ai-insight-1');
 const elInsight2 = fragmentElement.querySelector('#ai-insight-2');
 const elRecommendation = fragmentElement.querySelector('#ai-recommendation');
 
-// Hardcoded current metrics for the demo
-const currentMetrics = {
-  revenue: 125000,
-  revenue_growth: -5.2,
-  active_users: 1200,
-  churn_rate: 4.8,
-  support_tickets: 85
-};
+// Unique cache key per fragment instance
+const cacheKey = `insightBoard_aiResult_${fragmentNamespace}`;
 
 // Check LocalStorage for cached results
-const cachedData = localStorage.getItem('insightBoard_aiResult');
+const cachedData = localStorage.getItem(cacheKey);
 if (cachedData) {
   try {
     populateAIResults(JSON.parse(cachedData));
@@ -31,6 +25,15 @@ if (cachedData) {
 
 if (btnGenerate) {
   btnGenerate.addEventListener('click', async () => {
+    // Dynamic metrics from Configuration (Manual or Data Provider)
+    const currentMetrics = {
+      revenue: parseFloat(configuration.revenue) || 0,
+      revenue_growth: parseFloat(configuration.revenueGrowth) || 0,
+      active_users: parseInt(configuration.activeUsers) || 0,
+      churn_rate: parseFloat(configuration.churnRate) || 0,
+      support_tickets: parseInt(configuration.supportTickets) || 0
+    };
+
     // UI Reset
     btnGenerate.style.display = 'none';
     placeholder.style.display = 'none';
@@ -39,23 +42,27 @@ if (btnGenerate) {
     loadingState.style.display = 'flex';
 
     try {
-      const response = await fetch('http://localhost:3000/api/analyze', {
+      const apiEndpoint = configuration.proxyUrl || 'http://localhost:3000/api/analyze';
+      
+      const response = await fetch(apiEndpoint, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          period: 'March 2026',
-          metrics: currentMetrics
+          period: configuration.period || 'Current Period',
+          metrics: currentMetrics,
+          customPrompt: configuration.customPrompt
         })
       });
 
       if (!response.ok) {
-        throw new Error('Failed to fetch AI insights. Is the API server running?');
+        const errData = await response.json();
+        throw new Error(errData.error || 'Failed to fetch AI insights.');
       }
 
       const data = await response.json();
       
       // Cache the result
-      localStorage.setItem('insightBoard_aiResult', JSON.stringify(data));
+      localStorage.setItem(cacheKey, JSON.stringify(data));
       
       populateAIResults(data);
     } catch (err) {

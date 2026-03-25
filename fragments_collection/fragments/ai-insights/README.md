@@ -1,16 +1,23 @@
 # InsightBoard AI Insights Fragment
 
-A premium, interactive AI Analysis component designed to fetch insights dynamically. Features complex CSS backgrounds and interactive loading states. 
+A premium, interactive AI Analysis component designed for Liferay. This fragment is "Marketplace Ready," meaning it is fully dynamic and can be connected to any data source.
 
-## API Endpoint Requirements
-- The "Generate Insights" action button executes an asynchronous `POST` request to `http://localhost:3000/api/analyze`.
-- To function correctly, ensure the accompanying `InsightBoard AI` Node.js middleware server is actively running on port 3000 in the background.
+## 🚀 Marketplace Features
+- **Dynamic Data Mapping:** Connect Revenue, Churn, and User metrics directly to Liferay Data Providers.
+- **Custom AI Persona:** Define the AI's role (e.g., COO, Financial Analyst, Sales Lead) via the configuration sidebar.
+- **Configurable Proxy:** Point the fragment to your own middleware or production API.
+- **Zero-Conflict Caching:** Uses `fragmentNamespace` to ensure multiple instances on one page don't overwrite each other's insights.
 
-## Editable Elements
-*All descriptive text within the fragment's pre-generation, error, loading, and completed state are natively editable in Liferay.*
-- `title` / `description`: High level copy.
-- `btn-text`: CTA text.
-- `loading-text`: Wait-state copy.
-- `error-msg`: Fallback failure copy.
-- `placeholder-text`: Instructional default text.
-- `action-text`: Quick link recommendation generated text.
+## 🛠 Setup & Configuration
+1. **AI Proxy URL:** In the fragment configuration, set your middleware endpoint (Default: `http://localhost:3000/api/analyze`).
+2. **Metrics:**
+   - **Manual:** Type values directly into the sidebar.
+   - **Dynamic:** Click the `+` icon next to each metric to map it to a Liferay Data Provider (e.g., Salesforce, REST API, or Spreadsheet).
+3. **Custom Prompt:** Tailor the AI's output by describing your business context in the "AI Persona" field.
+
+## 📡 API Requirement
+The fragment expects a `POST` request returning a JSON object with:
+- `summary` (string)
+- `risk_level` ("Low", "Medium", "High")
+- `insights` (array of 2 strings)
+- `recommendation` (string)
